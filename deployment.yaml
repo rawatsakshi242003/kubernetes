@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crego-app-dev-deployment
+  labels:
+    app: crego-app-dev
+spec:
+  replicas: 2 # Ye 2 pods banayega
+  selector:
+    matchLabels:
+      app: crego-app-dev
+  template:
+    metadata:
+      labels:
+        app: crego-app-dev
+    spec:
+      containers:
+      - name: frontend-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
